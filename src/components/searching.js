@@ -14,13 +14,6 @@ export function initSearching(searchField) {
         if (!searchValue || !searchValue.trim()) {
             return data;
         }
-
-        const filteredData = data.filter(row => compare(row, state));
-
-        if (filteredData.length === 0) {
-            return data;
-        }
-        
-        return filteredData;
+        return data.filter(row => compare(row, state));
     }
 }
