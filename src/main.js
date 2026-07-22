@@ -38,6 +38,7 @@ function collectState() {
 function render(action) {
     let state = collectState();
     let result = [...data];
+    
     result = applySearching(result, state, action);
     result = applyFiltering(result, state, action);
     result = applySorting(result, state, action);

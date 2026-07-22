@@ -9,11 +9,18 @@ export function initSearching(searchField) {
 
     return (data, state, action) => {
         // @todo: #5.2 — применить компаратор
-        if (!state[searchField] || !state[searchField].trim()) {
+        const searchValue = state[searchField];
+        
+        if (!searchValue || !searchValue.trim()) {
+            return data;
+        }
+
+        const filteredData = data.filter(row => compare(row, state));
+
+        if (filteredData.length === 0) {
             return data;
         }
         
-        const filteredData = data.filter(row => compare(row, state));
         return filteredData;
     }
 }
