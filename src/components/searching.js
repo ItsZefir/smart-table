@@ -14,6 +14,7 @@ export function initSearching(searchField) {
         if (!searchValue || !searchValue.trim()) {
             return data;
         }
+
         return data.filter(row => compare(row, state));
     }
 }
