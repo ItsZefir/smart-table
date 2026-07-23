@@ -15,6 +15,13 @@ export function initSearching(searchField) {
             return data;
         }
 
-        return data.filter(row => compare(row, state));
+        return data.filter(row => {
+            const comparisonState = {
+                ...state,
+                [searchField]: searchValue.trim()
+            };
+            
+            return compare(row, comparisonState);
+        });
     }
 }
