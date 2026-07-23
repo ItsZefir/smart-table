@@ -14,13 +14,15 @@ export function initSearching(searchField) {
         if (!searchValue || !searchValue.trim()) {
             return data;
         }
+
         const filteredData = data.filter(row => {
             const comparisonState = {
                 ...state,
                 [searchField]: searchValue.trim()
             };
+            
             return compare(row, comparisonState);
         });
-        return filteredData;
+        return filteredData.length === 0 ? [] : filteredData;
     }
 }
