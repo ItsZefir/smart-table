@@ -23,6 +23,8 @@ export function initSearching(searchField) {
             
             return compare(row, comparisonState);
         });
-        return filteredData.length === 0 ? [] : filteredData;
+
+        // Если нет совпадений, показываем все данные (как будто поиска не было)
+        return filteredData.length === 0 ? data : filteredData;
     }
 }
